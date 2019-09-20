@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{Statistical inference}
+\author{Gabriel Aguiar}
+\date{September 2019}
+
+\begin{document}
+
+\maketitle
+
+One of the possible approaches to statistical inference lies in a method known as regression. Such methodology aims to fit a function to a data set. Here, we will see how all this arises from the Bayes' theorem.
+
+Take a data set that represents a certain event. If we want to find a function parameter that best fits this set, we can make use of the probability theory:
+
+\hfill
+
+$P(\theta/D,I) = \frac{1}{\sum\limits_{\theta_{i}} P(D/\theta_{i},I) \; P(\theta_{i})/I} \; P(D/\theta,I) \; P(\theta/I)$
+
+\hfill
+
+$\theta$: Parameter; $D$: Data; $I$: Context information
+
+\hfill
+
+We can imagine that the parameter obeys a normal distribution of mean $\mu$ and standard deviation $\sigma$, since for random errors around it, there is an equal probability of getting larger or smaller values:
+
+\hfill
+
+$P(D/\theta,I) = \frac{1}{\sqrt{2 \pi \sigma^{2}}} \; e^{\frac{(\theta - \mu)^{2}}{2 \sigma^{2}}}$
+
+\hfill
+
+By the Principle of sufficient reason, we have no cause to point out a bias towards $\theta$. In this way we can express the function $P(\theta/I)$ through the following behavior:
+
+\hfill
+
+$P(\theta/I) = c$, $0 \leq \theta \leq 1$, with $c$ constant
+
+\hfill
+
+Thus, as the function $P(\theta/D,I)$ denominator also represents a constant, we have:
+
+\hfill
+
+$P(\theta/D,I) = C \frac{1}{\sqrt{2 \pi \sigma^{2}}} \; e^{-\frac{(\theta - \mu)^{2}}{2 \sigma^{2}}}$, with $C$ constant
+
+\hfill
+
+If we take the natural logarithm of the function $P(\theta/D,I)$:
+
+\hfill
+
+$L(\theta/D,I) \equiv ln \; P(\theta/D,I) = ln \; C - \frac{1}{2} \; ln \; 2 \pi \sigma^{2} \; -\frac{1}{2} \; \frac{(\theta - \mu)^{2}}{2 \sigma^{2}}$
+
+\hfill
+
+So if we want to maximize $P(\theta/D,I)$, we need to minimize $\frac{(\theta - \mu)^{2}}{\sigma^{2}}$.
+
+\hfill
+
+In statistics, this term is known as chi square and symbolizes the regression methodology:
+
+\hfill
+
+$\chi^{2} \equiv \frac{(\theta - \mu)^{2}}{\sigma^{2}}$
+
+\end{document}
