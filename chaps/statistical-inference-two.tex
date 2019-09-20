@@ -91,7 +91,7 @@ Thus, it can be said that $P(\theta/k)$ represents a normal distribution of mean
 
 \hfill
 
-$P(\theta/k) \approx \frac{1}{Z} \; e^{\frac{1}{2} \; \frac{d^{2}L}{d\theta^{2}} (\hat{\theta}/k) \; (\theta - \hat{\theta})^{2}} = \frac{1}{\sqrt{2 \pi \sigma^{2}}} \; e^{\frac{(\theta - \mu)^{2}}{2 \sigma^{2}}}$
+$P(\theta/k) \approx \frac{1}{Z} \; e^{\frac{1}{2} \; \frac{d^{2}L}{d\theta^{2}} (\hat{\theta}/k) \; (\theta - \hat{\theta})^{2}} = \frac{1}{\sqrt{2 \pi \sigma^{2}}} \; e^{-\frac{(\theta - \mu)^{2}}{2 \sigma^{2}}}$
 
 \hfill
 
@@ -104,19 +104,5 @@ $\frac{d^{2}L}{d\theta^{2}} (\hat{\theta}/k) = -\frac{n}{\hat{\theta} \; (1 - \h
 \hfill
 
 $\Rightarrow \sigma^{2} = \frac{\hat{\theta} \; (1 - \hat{\theta})}{n} \Rightarrow \sigma = \sqrt{\frac{\hat{\theta} \; (1 - \hat{\theta})}{n}}$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \end{document}
