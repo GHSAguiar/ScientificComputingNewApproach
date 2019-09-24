@@ -17,7 +17,7 @@ Take a data set that represents a certain event. If we want to find a function p
 
 \hfill
 
-$P(\theta/D,I) = \frac{1}{\sum\limits_{\theta_{i}} P(D/\theta_{i},I) \; P(\theta_{i})/I} \; P(D/\theta,I) \; P(\theta/I)$
+$P(\theta/D,I) = \frac{1}{\sum\limits_{\theta_{i}} P(D/\theta_{i},I) \; P(\theta_{i}/I)} \; P(D/\theta,I) \; P(\theta/I)$
 
 \hfill
 
@@ -29,7 +29,7 @@ We can imagine that the parameter obeys a normal distribution of mean $\mu$ and 
 
 \hfill
 
-$P(D/\theta,I) = \frac{1}{\sqrt{2 \pi \sigma^{2}}} \; e^{\frac{(\theta - \mu)^{2}}{2 \sigma^{2}}}$
+$P(D/\theta,I) = \frac{1}{\sqrt{2 \pi \sigma^{2}}} \; e^{-\frac{(\theta - \mu)^{2}}{2 \sigma^{2}}}$
 
 \hfill
 
