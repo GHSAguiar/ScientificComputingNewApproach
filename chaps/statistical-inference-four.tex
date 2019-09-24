@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{Statistical inference}
+\author{Gabriel Aguiar}
+\date{September 2019}
+
+\begin{document}
+
+\maketitle
+
+Suppose we are dealing with a linear regression problem whose data can be represented by $D = \{\ (x_{i},y_{i}) : i \in \mathbb{N} \; \}\ $.
+
+We can also fix $x_{i}$ and measure $y_{i}^{(1)}, \; ... \; , \; y_{i}^{(m)}$. Thus, to represent $(x_{i},y_{i})$, we can express $y_{i}$ as:
+
+\hfill
+
+$y_{i} = \frac{1}{m} \; \sum\limits_{l = 1}^{m} \; y_{i}^{(l)} \pm \sigma_{i}$, where $\sigma_{i} = \sqrt{\frac{1}{m} \; \sum\limits_{l = 1}^{m} \; (y_{i}^{(l)} - y_{i})^{2}}$
+
+\hfill
+
+Suppose our theoretical formulation for the phenomenon studied is $y(x)$ as a linear function:
+
+\hfill
+
+$y(x) = ax + b$, where $a$ and $b$ are the parameters of the function $y(x)$
+
+\hfill
+
+Thus, in the language of probability theory, parameter estimation can be done using the Bayes' Theorem, with context information $I$:
+
+\hfill
+
+$p(a,b/D,I) = \frac{1}{\sum\limits_{i} \; p(D/a_{i},b_{i},I) \; p(a_{i},b_{i}/I)} \; p(D/a,b,I) \; p(a,b/I)$
+
+\hfill
+
+We can imagine that the parameters obeys a normal distribution:
+
+\hfill
+
+$p(D/a,b,I) = \prod\limits_{i = 1}^{n} \; p(y_{i}/x_{i},a,b,I) = \prod\limits_{i = 1}^{n} \; \frac{1}{\sqrt{2 \pi \sigma_{i}^{2}}} \; e^{-\frac{(y_{i} - f(x_{i}))^{2}}{2 \sigma_{i}^{2}}}$
+
+\hfill
+
+$\Rightarrow p(D/a,b,I) = \prod\limits_{i = 1}^{n} \; \frac{1}{\sqrt{2 \pi \sigma_{i}^{2}}} \; e^{-\frac{(y_{i} - ax_{i} - b)^{2}}{2 \sigma_{i}^{2}}}$
+
+\hfill
+
+By the Principle of sufficient reason, we have no cause to point out a bias towards $a$ and $b$. In this way we can express the function $p(a,b/I)$ through the following behavior:
+
+\hfill
+
+$p(a,b/I) = c$, with $c$ constant
+
+\hfill
+
+Thus, as the function $p(a,b/D,I)$ denominator also represents a constant, we have:
+
+\hfill
+
+$p(a,b/D,I) = C \; \prod\limits_{i = 1}^{n} \; \frac{1}{\sqrt{2 \pi \sigma_{i}^{2}}} \; e^{-\frac{(y_{i} - ax_{i} - b)^{2}}{2 \sigma_{i}^{2}}}$, with $C$ constant
+
+\hfill
+
+If we take the natural logarithm of the function $p(a,b/D,I)$:
+
+\hfill
+
+$L(a,b/D,I) \equiv ln \; p(a,b/D,I) = - \frac{C}{2} \; \sum\limits_{i = 1}^{n} \; ln \; 2 \pi \sigma_{i}^{2} - \frac{1}{2} \; \sum\limits_{i = 1}^{n} \; \frac{(y_{i} - ax_{i} - b)^{2}}{\sigma_{i}^{2}}$
+
+\hfill
+
+So if we want to maximize $p(a,b/D,I)$, we need to minimize:
+
+\hfill
+
+$\chi^{2} \equiv \sum\limits_{i = 1}^{n} \; \frac{(y_{i} - ax_{i} - b)^{2}}{\sigma_{i}^{2}}$
+
+\hfill
+
+Since $\chi^{2}$ is a convex quadratic function, we seek its only minimum. Thus, we come across a "convex optimization problem" and we need to solve the system:
+
+\hfill
+
+$\begin{cases} \frac{\partial L}{\partial a} (\hat{a},\hat{b}/D,I) = 0 \\ \frac{\partial L}{\partial b} (\hat{a},\hat{b}/D,I) = 0 \end{cases}$
+
+\hfill
+
+Here, $\hat{a}$ and $\hat{b}$ are the parameters that we want to find.
+
+\end{document}
