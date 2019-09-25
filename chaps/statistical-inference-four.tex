@@ -17,7 +17,7 @@ We can also fix $x_{i}$ and measure $y_{i}^{(1)}, \; ... \; , \; y_{i}^{(m)}$. T
 
 \hfill
 
-$y_{i} = \frac{1}{m} \; \sum\limits_{l = 1}^{m} \; y_{i}^{(l)} \pm \sigma_{i}$, where $\sigma_{i} = \sqrt{\frac{1}{m} \; \sum\limits_{l = 1}^{m} \; (y_{i}^{(l)} - y_{i})^{2}}$
+$y_{i} = \frac{1}{m} \; \sum\limits_{l = 1}^{m} \; y_{i}^{(l)} \; \pm \; \sigma_{i}$, where $\sigma_{i} = \sqrt{\frac{1}{m} \; \sum\limits_{l = 1}^{m} \; (y_{i}^{(l)} - y_{i})^{2}}$
 
 \hfill
 
@@ -69,7 +69,7 @@ If we take the natural logarithm of the function $p(a,b/D,I)$:
 
 \hfill
 
-$L(a,b/D,I) \equiv ln \; p(a,b/D,I) = - \frac{C}{2} \; \sum\limits_{i = 1}^{n} \; ln \; 2 \pi \sigma_{i}^{2} - \frac{1}{2} \; \sum\limits_{i = 1}^{n} \; \frac{(y_{i} - ax_{i} - b)^{2}}{\sigma_{i}^{2}}$
+$L(a,b/D,I) \equiv ln \; p(a,b/D,I) = \sum\limits_{i = 1}^{n} \; ln \; C \; - \; \frac{1}{2} \; \sum\limits_{i = 1}^{n} \; ln \; 2 \pi \sigma_{i}^{2} \; - \; \frac{1}{2} \; \sum\limits_{i = 1}^{n} \; \frac{(y_{i} - ax_{i} - b)^{2}}{\sigma_{i}^{2}}$
 
 \hfill
 
