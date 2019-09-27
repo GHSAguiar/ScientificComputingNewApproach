@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{Statistical inference}
+\author{Gabriel Aguiar}
+\date{September 2019}
+
+\begin{document}
+
+\maketitle
+
+At this moment, the general strategy employed in the selection of models will be introduced from the perspective of statistical inference.
+
+Suppose we are studying a certain phenomenon for which there are two competing theories. By Theory A, $y(x) = c$, where $c$ ia a constant. By Theory B, $y(x) = ax$, where $a$ is a parameter. Let $p(T_{A}/D,I)$ be the belief in Theory A and $p(T_{B}/D,I)$ be the belief in Theory B, where D corresponds to a data set and I to context information.
+
+By way of comparison, we can take the ratio between the two beliefs and make use of the Bayes' theorem:
+
+\hfill
+
+$\frac{p(T_{A}/D,I)}{p(T_{B}/D,I)} = \frac{p(D/T_{A},I) \; p(T_{A}/I)}{p(D/T_{B},I) \; p(T_{B}/I)}$
+
+\hfill
+
+By statistics, $p(D/T_{B},I)$ is the probability that any line will fit the data and can be written as:
+
+\hfill
+
+$p(D/T_{B},I) = \int\limits_{a_{min}}^{a_{max}} p(D/a,T_{B},I) \; p(a/T_{B},I) \; da$
+
+\hfill
+
+$[a_{min},a_{max}]$ is the interval of possible values of $a$
+
+\hfill
+
+From the perspective of a normal distribution:
+
+\hfill
+
+$p(D/a,T_{B},I) = p(D/\hat{a},T_{B},I) \; e^{-\frac{(a - \hat{a})^{2}}{2 \sigma_{a}^{2}}}$
+
+\hfill
+
+$\hat{a}$ corresponds to the estimate of $a$
+
+\hfill
+
+Again by statistics, in order to normalize, $p(a/T_{B},I)$ can be represented as:
+
+\hfill
+
+$p(a/T_{B},I) = \frac{1}{a_{max} - a_{min}}$, where $a_{min} \leq a \leq a_{max}$
+
+\hfill
+
+Thus: $p(D/T_{B},I) = \int\limits_{a_{min}}^{a_{max}} p(D/\hat{a},T_{B},I) \; e^{-\frac{(a - \hat{a})^{2}}{2 \sigma_{a}^{2}}} \; \frac{1}{a_{max} - a_{min}} \; da$
+
+\hfill
+
+\hfill
+
+$\Rightarrow p(D/T_{B},I) = \frac{\sigma_{a} \sqrt{2 \pi}}{a_{max} - a_{min}} \; p(D/\hat{a},T_{B},I)$
+
+\hfill
+
+$\Rightarrow \frac{p(T_{A}/D,I)}{p(T_{B}/D,I)} = \frac{p(T_{A}/I)}{p(T_{B}/I)} \; \frac{p(D/T_{A},I)}{p(D/\hat{a},T_{B},I)} \; \frac{a_{max} - a_{min}}{\sigma_{a} \sqrt{2 \pi}}$
+
+\hfill
+
+Where:
+
+\hfill
+
+$\frac{p(T_{A}/I)}{p(T_{B}/I)}$: Previous belief
+
+\hfill
+
+$\frac{p(D/T_{A},I)}{p(D/\hat{a},T_{B},I)}$: Likelihood ratio
+
+\hfill
+
+$\frac{a_{max} - a_{min}}{\sigma_{a} \sqrt{2 \pi}}$: Ockham factor ("thrift")
+
+\hfill
+
+The Ockham factor represents something quite profound in model selection. A Theory B that perfectly represents the data reveals a high Ockham factor and thus supports a greater belief in Theory A. This result makes sense when we think of the errors inherent in the experimental process. Precisely adjusting your data may mean adding noise to your model.
+
+\end{document}
