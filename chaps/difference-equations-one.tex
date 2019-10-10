@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{Difference equations}
+\author{Gabriel Aguiar}
+\date{October 2019}
+
+\begin{document}
+
+\maketitle
+
+Difference equations represent the discrete description of ordinary differential equations. Let's look at some formulations to study them:
+
+\begin{itemize}
+
+\item Operator $\Delta$ definition:
+
+$\Delta y(x) \equiv \Delta_{h} y(x) \equiv y(x + h) - y(x)$
+
+$\Delta^{2} y(x) \equiv \Delta_{h}^{2} y(x) \equiv \Delta_{h} [\Delta_{h} y(x)] = y(x + 2h) - 2y(x + h) + y(x)$
+
+\item Difference equation definition:
+
+$F(x,\Delta y(x),\Delta^{2} y(x),...,\Delta^{n}y(x)) = 0$
+
+\item Theorem:
+
+$\Delta \sum\limits_{l = 1}^{k} \; c_{l} \; y^{l} (x) = \sum\limits_{l = 1}^{k} \; c_{l} \; \Delta y^{l} (x)$
+
+That way, $\Delta$ is a linear operator.
+
+\item Theorem:
+
+$y(x) = \sum\limits_{l = 0}^{n} \; a_{l} \; x^{l} \Rightarrow \Delta^{n} y(x) = n! \; h^{n} \; a_{n} \Rightarrow \Delta^{n + 1} y(x) = 0$
+
+\item Operator $E$ definition:
+
+$Ey(x) \equiv y(x + h)$
+
+\item Operator $I$ definition:
+
+$Iy(x) \equiv y(x)$
+
+\item Observations:
+
+$\Delta y(x) = Ey(x) - Iy(x)$, $\forall y$
+
+$\Delta \equiv E - I$
+
+$E^{2} y = E[Ey(x)] = E[y(x + h)] = y(x + 2h)$
+
+$E^{k} y = y(x + kh)$
+
+\item Factorial function definition
+
+$x^{(n)} \equiv x(x - h)(x - 2h) ... [x - (n - 1)h]$
+
+$x^{(0)} = 1$
+
+$\Delta x^{(n)} = (x + h)^{(n)} - x^{(n)} = nhx^{(n-1)}$
+
+\item Theorem:
+
+$\Delta [u(x)v(x)] = Eu(x) \Delta v(x) + Ev(x) \Delta u(x)$
+
+\item Theorem:
+
+$\Delta^{n} y(x) = \sum\limits_{k = 0}^{n} \; \binom{n}{k} (-1)^{n - k} \; E^{k} y(x)$, $\forall y$
+
+\item Observations:
+
+$\Delta^{n} y(x) = \sum\limits_{k = 0}^{n} \; \binom{n}{k} (-1)^{n - k} \; y(x + kh)$
+
+$\Delta^{n} \equiv \sum\limits_{k = 0}^{n} \; \binom{n}{k} (-1)^{n - k} \; E^{k}$
+
+\item Theorem:
+
+$E^{n} \equiv (\Delta + I)^{n} \equiv \sum\limits_{k = 0}^{n} \; \binom{n}{k} \Delta^{k}$
+
+\item Undefined sum:
+
+If $Y$ is the function such that $\Delta Y(x) = y(x)$, then $\Delta^{-1} y(x) = Y(x)$.
+
+\item Observations:
+
+$\Delta x^{(n)} = nhx^{(n - 1)} \Rightarrow \Delta^{-1} x^{(n - 1)} = \frac{1}{nh} \; x^{(n)} + \Pi$
+
+$\Delta [\Delta^{n - 1} y(x)] = \Delta^{n} y(x)$
+
+\item Theorem:
+
+$\Delta (\frac{u(x)}{v(x)}) = \frac{1}{v(x) Ev(x)} \; v(x) \Delta u(x) - u(x) \Delta v(x)$
+    
+\end{itemize}
+
+\end{document}
