@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{Difference equations}
+\author{Gabriel Aguiar}
+\date{October 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Differential equations of order $k$, linear and homogeneous}
+
+\begin{itemize}
+
+\item Structure:
+
+$(*): \sum\limits_{j = 0}^{k} \; a_{j} (n)\; E^{j} y(n) = 0$
+
+$\Rightarrow \sum\limits_{j = 0}^{k} \; a_{j} (n)\; y(n + j) = 0 \Rightarrow a_{0} (n) \; y(n) + \; ... \; + a_{k} (n) \; y(n + k) = 0$
+
+\item Theorem:
+
+There is only one solution for $(*)$ knowing $y(0)$, $y(1)$, ... , $y(k - 1)$. This is known as the initial value problem.
+
+\item Definition:
+
+A set of solutions for $(*)$ is said to be fundamental if its elements are linearly independent.
+
+\item Theorem:
+
+A set of solutions $ \{ y^{l} \}$, $0 \leq l \leq k$ is fundamental if:
+
+\hfill
+
+$W(n) = det \; \begin{vmatrix} y^{(1)} (n) & ... & y^{(k)} (n) \\ : &  & : \\ y^{(1)} (n + k - 1) & ... & y^{(k)} (n + k - 1) \\ \end{vmatrix} \neq 0$
+
+\hfill
+
+$W(n)$ is called Casoratian.
+
+\item Theorem:
+
+The solution space for $(*)$ is a $k$-dimension vector space.
+    
+\end{itemize}
+
+\hfill
+
+\hfill
+
+\section{Differential equations of order $k$, linear and homogeneous, at constant coefficients}
+
+\begin{itemize}
+
+\item Structure:
+
+$(**): \sum\limits_{j = 0}^{k} \; a_{j} \; E^{j} y(n) = 0$
+
+Normal shape: $y(n + k) + b_{k - 1} \; y(n + k - 1) + \; ... \; + b_{0} \; y(n) = 0$
+
+\item Resolution:
+
+$\sum\limits_{j = 0}^{k} \; a_{j} \; E^{j} y(n) = 0 \Rightarrow E^{k} y(n) + b_{k - 1} \; E^{k - 1} y(n) + \; ... \; + b_{0} \; E^{0} y(n) = 0$
+
+$\Rightarrow (E^{k} + b_{k - 1} \; E^{k - 1} + \; ... \; + b_{0} \; E^{0}) \; y(n) = 0$
+
+$\Rightarrow (E - \lambda_{1})^{\alpha_{1}} \; (E - \lambda_{2})^{\alpha_{2}} \; ... \; (E - \lambda_{l})^{\alpha_{l}} \; y(n) = 0$, with $\sum\limits_{i = 0}^{l} \; \alpha_{i} = k$
+
+In the above equation $(***)$, $\lambda_{i}$ is a root of the characteristic polynomial of $(**)$:
+
+$\beta^{k} + b_{k - 1} \; \beta^{k - 1} + \; ... \; b_{0} = 0$
+
+Taking $(E - \lambda_{1})^{\alpha_{1}} \; y(n) = 0$:
+
+If $\alpha_{1} = 1$:
+
+$(E - \lambda_{1})^{\alpha_{1}} \; y(n) = 0 \Rightarrow y(n + 1) = \lambda_{1} \; y(n) = \lambda_{1} \; (\lambda_{1} \; y(n - 1))$
+
+$\Rightarrow y(n) = \lambda_{1}^{n}$
+
+If $\alpha_{1} > 1$:
+
+Let $v(n) \; \lambda_{1}^{n} = y(n) \Rightarrow (E - \lambda_{1})^{\alpha_{1}} \; \lambda_{1} \; v(n) = [\sum\limits_{i = 0}^{\alpha_{1}} \; \binom{\alpha_{i}}{i} (-\lambda_{i})^{\alpha_{i} - i} \; E^{i}] \; \lambda_{i}^{n} \; v(n) =$
+
+$= \lambda_{1}^{\alpha_{1} + n} \; \sum\limits_{i = 0}^{\alpha_{1}} \; \binom{\alpha_{i}}{i} (-\lambda_{i})^{\alpha_{i} - i} \; E^{i} v(n) = \lambda_{1}^{\alpha_{1} + n} \; (E - 1)^{\alpha_{1}} \; v(n) = \lambda_{1}^{\alpha_{1} + n} \; \Delta^{\alpha_{1}} v(n) =$
+
+$= 0$
+
+This way, $v(n)$ can assume $1$, $n$, $n^{2}$, ... , $n^{\alpha_{1} - 1}$ and $y(n)$ can assume $\lambda_{1}^{n}$, $n \; \lambda_{1}^{n}$, $n^{2} \; \lambda_{1}^{n}$, ... , $n^{\alpha_{1} - 1} \; \lambda_{1}^{n}$.
+
+To find all $(**)$ solutions, we need to repeat the procedure for all $(***)$ factors.
+
+
+\end{itemize}
+
+\end{document}
