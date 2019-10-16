@@ -13,7 +13,7 @@
 
 \maketitle
 
-\section{Differential equations of order $k$, linear and homogeneous}
+\section{Difference equations of order $k$, linear and homogeneous}
 
 \begin{itemize}
 
@@ -33,7 +33,7 @@ A set of solutions for $(*)$ is said to be fundamental if its elements are linea
 
 \item Theorem:
 
-A set of solutions $ \{ y^{l} \}$, $0 \leq l \leq k$ is fundamental if:
+A set of solutions $ \{ y^{(l)} \}$, $0 \leq l \leq k$, is fundamental if:
 
 \hfill
 
@@ -53,7 +53,7 @@ The solution space for $(*)$ is a $k$-dimension vector space.
 
 \hfill
 
-\section{Differential equations of order $k$, linear and homogeneous, at constant coefficients}
+\section{Difference equations of order $k$, linear and homogeneous, at constant coefficients}
 
 \begin{itemize}
 
@@ -73,7 +73,7 @@ $\Rightarrow (E - \lambda_{1})^{\alpha_{1}} \; (E - \lambda_{2})^{\alpha_{2}} \;
 
 In the above equation $(***)$, $\lambda_{i}$ is a root of the characteristic polynomial of $(**)$:
 
-$\beta^{k} + b_{k - 1} \; \beta^{k - 1} + \; ... \; b_{0} = 0$
+$\beta^{k} + b_{k - 1} \; \beta^{k - 1} + \; ... \; + b_{0} = 0$
 
 Taking $(E - \lambda_{1})^{\alpha_{1}} \; y(n) = 0$:
 
@@ -85,7 +85,7 @@ $\Rightarrow y(n) = \lambda_{1}^{n}$
 
 If $\alpha_{1} > 1$:
 
-Let $v(n) \; \lambda_{1}^{n} = y(n) \Rightarrow (E - \lambda_{1})^{\alpha_{1}} \; \lambda_{1} \; v(n) = [\sum\limits_{i = 0}^{\alpha_{1}} \; \binom{\alpha_{i}}{i} (-\lambda_{i})^{\alpha_{i} - i} \; E^{i}] \; \lambda_{i}^{n} \; v(n) =$
+Let $v(n) \; \lambda_{1}^{n} = y(n) \Rightarrow (E - \lambda_{1})^{\alpha_{1}} \; \lambda_{1} \; v(n) = [\sum\limits_{i = 0}^{\alpha_{1}} \; \binom{\alpha_{i}}{i} (-\lambda_{i})^{\alpha_{i} - i} \; E^{i}] \; \lambda_{1}^{n} \; v(n) =$
 
 $= \lambda_{1}^{\alpha_{1} + n} \; \sum\limits_{i = 0}^{\alpha_{1}} \; \binom{\alpha_{i}}{i} (-\lambda_{i})^{\alpha_{i} - i} \; E^{i} v(n) = \lambda_{1}^{\alpha_{1} + n} \; (E - 1)^{\alpha_{1}} \; v(n) = \lambda_{1}^{\alpha_{1} + n} \; \Delta^{\alpha_{1}} v(n) =$
 
