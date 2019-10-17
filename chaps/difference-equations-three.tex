@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{Difference equations}
+\author{Gabriel Aguiar}
+\date{October 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Difference equations applications}
+
+The difference equations have a wide range of application. In short, it can be said that its main directions go to: the numerical solution of equations; the numerical solution of ordinary differential equations; interpolation.
+
+We will explore here some of the main approaches that arise in problems involving numerical solution of equations.
+
+\section{Numerical solution of equations}
+
+Consider the following problem: Given a function $f$, find the values of $x$ such that $f(x) = 0$. Thus, let's analyze from the perspective of the following approaches:
+
+\begin{itemize}
+
+\item Incremental search
+
+The incremental search has as its guideline the partitioning of the domain in which the function $f$ is defined and the use of the Intermediate Value Theorem to find its roots. Thus, a prior knowledge of the feature of $f$ is important for the partitioning to be done in the most appropriate way. Otherwise, errors associated with the algorithm can cause major problems. It is worth mentioning that the number of search iterations is directly related to domain partitioning.
+
+\item Dichotomy (or bisection)
+
+The dichotomy is equivalent to the binary search present in sorting algorithms. Here the strategy is to employ "directed partitioning", also making use of the Intermediate Value Theorem. For the approach in question, once again, a prior knowledge of the function $f$ becomes relevant. However, by targeting partitioning, the number of search iterations tends to be significantly lower.
+
+\item Iterative methods
+
+The iterative method class is based on the whole theory behind Dynamic Systems. Thus, by searching for the so-called "fixed points", it is possible to efficiently obtain the roots of the function $f$.
+
+\end{itemize}
+
+\end{document}
