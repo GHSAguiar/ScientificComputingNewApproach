@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{Difference equations}
+\author{Gabriel Aguiar}
+\date{October 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Iterative methods in numerical solution of equations}
+
+Consider the following problem: Given a function $f$, find the values of $x$ such that $f(x) = 0$. Let's build a function $\phi$, which we will call a "map", satisfying:
+
+\begin{itemize}
+    
+\item $\phi (x_{k}) = x_{k + 1}$
+
+Thus, given an $x_{k}$ (associated with iteration $k$), the map function returns the later value $x_{k + 1}$.
+
+\item $f(x^{*}) = 0 \Rightarrow \phi (x^{*}) = x^{*}$
+
+$x^{*}$ is called the fixed point of $\phi$.
+
+\end{itemize}
+
+Let's look at the following example: $f(x) = x^{2} + 0.96 \; x - 2.08$
+
+\hfill
+
+A possible construct for $\phi$ is: $\phi (x) = \frac{2.08}{x_{k} + 0.96}$
+
+\hfill
+
+At your fixed point: $x^{*} = \frac{2.08}{x^{*} + 0.96} \Rightarrow (x^{*})^{2} + 0.96 \; x^{*} - 2.08 = 0$
+
+\hfill
+
+Let's now look at some formulations for addressing problems like this:
+
+\begin{itemize}
+
+\item Brouwer's fixed point theorem
+
+Suppose $\phi \in C[a,b]$, such that $\phi (x) \in [a,b], \forall \; x \in [a,b]$. So $\exists \; x^{*} \in [a,b]$ such that $\phi (x^{*}) = x^{*}$.
+
+\item Contraction definition
+
+$\phi$ is a contraction in $[a,b]$ if there is $0 < L < 1$ such that:
+
+$| \phi (x) - \phi (y) | \leq L \; | x - y |$, $\forall \; x,y \in [a,b]$
+
+$\phi$ is said to be $L$-Lipschitz.
+
+\item Contraction map theorem
+
+Let F be under conditions of the Brouwer's fixed point theorem. If $\phi$ is a contraction in $[a,b]$, then the fixed point $x^{*}$ will be unique. Additionally:
+
+$lim_{k \rightarrow \infty} \; \phi (x_{k}) = x^{*}$, $\forall \; x_{0} \in [a,b]$
+
+$x_{0}$ is said to be the start point.
+
+\item Theorem
+
+Given $x_{0} \in [a,b]$ and a tolerance $\epsilon > 0$:
+
+$k(\epsilon) > \frac{1}{log (\frac{1}{L})} \; log \; | x_{1} - x_{0} | - log \; (\epsilon \; (1 - L))$
+
+$\phi (x_{k}) = x_{k + 1}$ an $L$-contraction.
+
+\end{itemize}
+
+In this context, we can introduce the so-called Relaxation method, in which $\phi$ has the following feature: $\phi (x) = x - \lambda (x) \; f(x)$.
+
+\hfill
+
+In a specific case of $\lambda (x)$, we have the so-called Newton-Raphson method:
+
+\hfill
+
+$\phi (x_{k}) = x_{k + 1} = x_{k} - \frac{f(x_{k})}{f'(x_{k})}$
+
+\end{document}
