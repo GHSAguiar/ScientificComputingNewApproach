@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{Machine Learning}
+\author{Gabriel Aguiar}
+\date{November 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{The problem of machine learning}
+
+\hfill
+
+Learning in the biological context can come in many forms. However, we can categorize them into three main strands: supervised, unsupervised and reinforcement learning. This is precisely how the concept is transposed into the universe of machines.
+
+\hfill
+
+At first, we will focus on the supervised learning approach.
+
+\section{Supervised learning}
+
+\hfill
+
+Generally speaking, the architecture of this type of learning can be described as follows: A data set $D$ and a collection of hypothesis $H$ are the inputs of an algorithm $A$, which returns an output $h^{*}$. The diagram below briefly illustrates this dynamic:
+
+\begin{figure}[h!]
+
+\includegraphics{diagram}
+
+Figure 1: Characteristic architecture of supervised machine learning.
+
+\end{figure}
+
+\hfill
+
+As an example, we can cite the famous Perceptron. In it, a set of data, represented in a vector space, goes through a very interesting classification process. The idea is to keep on opposite sides of a hyperplane points classified with different values (0 or 1, for example). For this, the algorithm uses a series of iterations to detect misplaced points and thus rotate the hyperplane to correct the problem.
+
+\hfill
+
+Around such dynamics, aspects such as data set size exert a huge influence on algorithm performance and the error associated with training.
+
+\end{document}
