@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{Machine Learning}
+\author{Gabriel Aguiar}
+\date{November 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Training machines}
+
+\hfill
+
+A very relevant issue when training algorithms is the error associated with training. We can classify this error into two contributions: one internal ($E_{in}$) and one external ($E_{out}$) to the laboratory.
+
+\hfill
+
+Given a data set $D = \{ (x_{j}, y_{j}) \}_{j = 1}^{N}$ and a training function $h(x)$, we can express:
+
+\hfill
+
+$E_{in} (h) = \frac{1}{N} \; \sum\limits_{j = 1}^{N} \; (y_{j} - h(x_{j}))^{2}$
+
+\hfill
+
+$E_{out} (h) = \mathbb{E} \; [(y - h(x))^{2}]$, where $\mathbb{E} \; [A]$ is the expected value of $A$
+
+\hfill
+
+The difference $|E_{in} (h) - E_{out} (h)|$ is known as generalization gap. An interesting tool in the analysis of this term is the so-called Hoeffding's Inequality, which measures the probability of finding a gap beyond a certain range:
+
+\hfill
+
+$\mathbb{P}_D \{ |E_{in} (h) - E_{out} (h)| > \epsilon \} \leq 2 e^{-2 \epsilon^{2} N}$
+
+\hfill
+
+Thus, we can note that as the size of the data set increases, the generalization gap decreases.
+
+\hfill
+
+Taking now a finite class of hypotheses $H = \{ h_{1}, ... , h_{M} \}$, we can do the following analysis:
+
+\hfill
+
+$\forall \; g \in H$, $\mathbb{P}_{D} \{ |E_{in} (g) - E_{out} (g)| > \epsilon \} \leq \mathbb{P}_{D} \{ |E_{in} (h_{1}) - E_{out} (h_{1})| > \epsilon \; or \; ... \; or \; |E_{in} (h_{M}) - E_{out} (h_{M})| > \epsilon \} \leq \sum\limits_{m = 1}^{M} \; \mathbb{P}_{D} \{ |E_{in} (h_{m}) - E_{out} (h_{m})| > \epsilon \} \leq 2 M e^{-2 \epsilon^{2} N}$
+
+\hfill
+
+Still: $\mathbb{P}_{D} \{ |E_{in} (g) - E_{out} (g)| \leq \epsilon \} > 1 - 2 M e^{-2 \epsilon^{2} N}$
+
+\hfill
+
+\hfill
+
+\hfill
+
+When we think of the Perceptron algorithm, the above analysis cannot provide us with relevant information, since the number of possible hypotheses is infinite and not numerable. It was then in the 1960s that Vladimir Vapnik and Alexey Chervonenkis presented the proposal for dichotomies.
+
+\hfill
+
+$h: X \rightarrow \{ -1, 1 \}$ being a given training function, with $x_{1}, ... , x_{N} \in X$. We define $(h(x_{1}), ... , h(x_{N}))$ as a dichotomy and $\mathbb{H} (x_{1}, ... , x_{N}) = \{ (h(x_{1}), ... , h(x_{N})) | h \in H \}$ as the class of dichotomies.
+
+\hfill
+
+Thus, as the number of dichotomies is measurable, Vapnik and Chervonenkis allowed the Perceptron problem to be explored. For this, it was defined as decreasing function:
+
+\hfill
+
+$m_{\mathbb{H}} (N) = max \; |H(x_{1}, ... , x_{N})| \leq 2^{N}$
+
+\end{document}
