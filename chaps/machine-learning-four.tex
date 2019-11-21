@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{Machine Learning}
+\author{Gabriel Aguiar}
+\date{November 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Learning algorithms}
+
+\hfill
+
+Learning algorithms can span several categories. However we will put here as three main pillars Perceptron, linear regression and logistic regression.
+
+\hfill
+
+In the first, a data set is approached from the perspective of binary classification. In other words, the idea of Perceptron is, through a hyperplane in space, to separate points from distinct classes.
+
+\hfill
+
+In linear regression, a data set in space is viewed from the perspective of the Least Squares Method. Thus, the idea of the algorithm in question is to find the hyperplane that best fits the point distribution, that is, the best multivariable linear function to describe the data.
+
+\hfill
+
+Logistic regression is an algorithm with a much more statistical approach. In this the focus is, under general terms, to seek to describe the probability of a given event based on the analysis of a series of factors (parameters). Its applications range from medicine to econometrics.
+
+\section{Learning Methodology}
+
+\hfill
+
+When it comes to machine training, there is a standard methodology to follow. Its axis consists of dividing the data set into two classes: training and validation. Thus, learning occurs and can be evaluated against unknown data by the algorithm.
+
+\hfill
+
+The training set usually represents around 70\% of the total data. With it, the algorithm in question is fed and is able to recognize the requested patterns.
+
+\newpage
+
+Using the remaining 30\% in a validation process is of paramount importance to the learning process. The idea of this step is to verify how fit is the algorithm built from the data to handle data external to the parent set. It is at this point in the work that one can estimate the internal error in the laboratory ($E_{in}$) and the overfitting status.
+
+\end{document}
